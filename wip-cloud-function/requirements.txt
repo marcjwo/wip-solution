@@ -1,0 +1,4 @@
+functions-framework
+google-cloud-bigquery==3.22.0
+google-cloud-storage==2.16.0
+google-cloud-aiplatform

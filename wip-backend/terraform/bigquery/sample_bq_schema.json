@@ -1,0 +1,97 @@
+[
+  {
+    "name": "project_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "policy_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "construction_team_owners",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "policy_design",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "project_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "project_country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "class_of_insurance",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "insurerpolicy_or_endorsement",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "effective_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "expiry_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "limit_currency",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "policy_limit_local",
+    "type": "NUMERIC",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "premium_currency",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "gross_premium_local",
+    "type": "NUMERIC",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "net_premium_local",
+    "type": "NUMERIC",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "commission_rate",
+    "type": "NUMERIC",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "tax_ratefee_local",
+    "type": "NUMERIC",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "commission_amount_local",
+    "type": "NUMERIC",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "file_location",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]
