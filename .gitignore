@@ -39,3 +39,4 @@ terraform.rc
 # Exclude local dev files
 files/
 test/
+wip-frontend/
