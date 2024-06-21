@@ -33,3 +33,7 @@ After everything is set up following the setup instructions above:
 - During backend deployment, the output is showing a trigger bucket - copy this and enter into the frontend to check if bucket exists
 - Upload file for data extraction
 - Open up Looker, select your explore - et voila, new data appears
+
+## Architecture
+
+![Architecture](./static/wip-solution.png)

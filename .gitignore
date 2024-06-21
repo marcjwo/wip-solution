@@ -43,3 +43,4 @@ test/
 wip-backend/terraform/bigquery/bq_schema.json
 wip-cloud-function/prompt.txt
 /wip-backend/terraform/tmp/
+.DS_Store
