@@ -39,7 +39,7 @@ terraform.rc
 # Exclude local dev files
 files/
 test/
-wip-frontend/
+# wip-frontend/
 wip-backend/terraform/bigquery/bq_schema.json
 wip-cloud-function/prompt.txt
 /wip-backend/terraform/tmp/
