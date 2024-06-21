@@ -22,27 +22,27 @@ import vertexai.preview.generative_models as generative_models
 # file_name = "prompt.txt"
 # pdf_file = "Quote slip & Wording AGCS 01.12.2023.pdf"
 
-schema = [
-    bigquery.SchemaField("project_name", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("policy_number", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("construction_team_owners", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("policy_design", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("project_code", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("project_country", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("class_of_insurance", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("insurerpolicy_or_endorsement", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("effective_date", "DATE", mode="NULLABLE"),
-    bigquery.SchemaField("expiry_date", "DATE", mode="NULLABLE"),
-    bigquery.SchemaField("limit_currency", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("policy_limit_local", "NUMERIC", mode="NULLABLE"),
-    bigquery.SchemaField("premium_currency", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("gross_premium_local", "NUMERIC", mode="NULLABLE"),
-    bigquery.SchemaField("net_premium_local", "NUMERIC", mode="NULLABLE"),
-    bigquery.SchemaField("commission_rate", "NUMERIC", mode="NULLABLE"),
-    bigquery.SchemaField("tax_ratefee_local", "NUMERIC", mode="NULLABLE"),
-    bigquery.SchemaField("commission_amount_local", "NUMERIC", mode="NULLABLE"),
-    bigquery.SchemaField("file_location", "STRING", mode="NULLABLE"),
-]
+# schema = [
+#     bigquery.SchemaField("project_name", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("policy_number", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("construction_team_owners", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("policy_design", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("project_code", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("project_country", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("class_of_insurance", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("insurerpolicy_or_endorsement", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("effective_date", "DATE", mode="NULLABLE"),
+#     bigquery.SchemaField("expiry_date", "DATE", mode="NULLABLE"),
+#     bigquery.SchemaField("limit_currency", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("policy_limit_local", "NUMERIC", mode="NULLABLE"),
+#     bigquery.SchemaField("premium_currency", "STRING", mode="NULLABLE"),
+#     bigquery.SchemaField("gross_premium_local", "NUMERIC", mode="NULLABLE"),
+#     bigquery.SchemaField("net_premium_local", "NUMERIC", mode="NULLABLE"),
+#     bigquery.SchemaField("commission_rate", "NUMERIC", mode="NULLABLE"),
+#     bigquery.SchemaField("tax_ratefee_local", "NUMERIC", mode="NULLABLE"),
+#     bigquery.SchemaField("commission_amount_local", "NUMERIC", mode="NULLABLE"),
+#     bigquery.SchemaField("file_location", "STRING", mode="NULLABLE"),
+# ]
 
 generation_config = {
     "max_output_tokens": 8192,
@@ -113,7 +113,7 @@ def load_data_to_bq(project_id, dataset_id, table_id, data):
     job_config = bigquery.LoadJobConfig(
         source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
         # autodetect=True,
-        schema=schema,
+        # schema=schema,
         write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
     )
     table = f"{project_id}.{dataset_id}.{table_id}"
@@ -138,28 +138,28 @@ def hello_gcs(cloud_event: CloudEvent):
     bucket = data["bucket"]
     name = data["name"]
 
-    if "prompt.txt" not in name.lower():
-        print("prompt.txt uploaded, ending function early")
-        return None
+    # if "prompt.txt" in name.lower():
+    #     print("prompt.txt uploaded, ending function early")
+    #     return None
 
     # Generate prompt
     prompt = read_file_from_gcs(
         project_id=os.environ.get("PROJECT_ID"),
-        bucket_name=bucket,
+        bucket_name=os.environ.get("PROMPT_BUCKET"),
         file_name="prompt.txt",
     )
     extract = generate_content(
         os.environ.get("PROJECT_ID"), bucket_name=bucket, file_name=name, prompt=prompt
     )
-    create_dataset(
-        project_id=os.environ.get("PROJECT_ID"), dataset_id=os.environ.get("DATASET_ID")
-    )
-    create_table(
-        project_id=os.environ.get("PROJECT_ID"),
-        dataset_id=os.environ.get("DATASET_ID"),
-        table=os.environ.get("TABLE_ID"),
-        schema=schema,
-    )
+    # create_dataset(
+    #     project_id=os.environ.get("PROJECT_ID"), dataset_id=os.environ.get("DATASET_ID")
+    # )
+    # create_table(
+    #     project_id=os.environ.get("PROJECT_ID"),
+    #     dataset_id=os.environ.get("DATASET_ID"),
+    #     table=os.environ.get("TABLE_ID"),
+    #     schema=schema,
+    # )
     load_data_to_bq(
         project_id=os.environ.get("PROJECT_ID"),
         dataset_id=os.environ.get("DATASET_ID"),

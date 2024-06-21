@@ -27,4 +27,3 @@ These are the important fields you need to extract:
 Additional info: 
 the fields effective_date and expiry_date need to be in the format YYYY-MM-DD.
 Policy_limit_local, gross_premium_local, net_premium_local, commission_amount_local and tax_ratefee_local are numbers and the thousand separators need to be removed- keep the decimal separators
-

@@ -42,7 +42,7 @@ resource "google_storage_bucket" "prompt-bucket" {
 resource "google_storage_bucket_object" "prompt-object" {
   name   = "prompt.txt"
   bucket = google_storage_bucket.prompt-bucket.name
-  source = "../../wip-cloud-functionprompt.txt"
+  source = "../../wip-cloud-function/prompt.txt"
 }
 
 resource "google_project_iam_member" "gcs-pubsub-publishing" {
@@ -95,6 +95,9 @@ resource "google_cloudfunctions2_function" "default" {
   build_config {
     runtime     = "python312"
     entry_point = "hello_gcs"
+    environment_variables = {
+      SOURCE_HASH = data.archive_file.default.output_sha
+    }
     source {
       storage_source {
         bucket = google_storage_bucket.gcf-source-bucket.name
@@ -110,9 +113,14 @@ resource "google_cloudfunctions2_function" "default" {
     available_cpu                    = "4"
     max_instance_request_concurrency = 20
     environment_variables = {
-      PROJECT_ID = var.project_id
-      DATASET_ID = var.dataset_id
-      TABLE_ID   = var.table_id
+      PROJECT_ID    = var.project_id
+      DATASET_ID    = var.dataset_id
+      TABLE_ID      = var.table_id
+      PROMPT_BUCKET = google_storage_bucket.prompt-bucket.name
     }
   }
+}
+
+output "trigger-bucket" {
+  value = google_storage_bucket.trigger-bucket.name
 }

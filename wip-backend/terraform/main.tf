@@ -11,7 +11,7 @@ module "google_project_service" {
     "bigquery.googleapis.com",
     "cloudresourcemanager.googleapis.com",
     "cloudfunctions.googleapis.com",
-    "cloudrun.googleapis.com",
+    "run.googleapis.com",
     "serviceusage.googleapis.com",
     "storage.googleapis.com"
   ]
@@ -34,4 +34,8 @@ module "cloud_function" {
   project_id = var.project_id
   dataset_id = var.dataset_id
   table_id   = var.table_id
+}
+
+output "trigger-bucket" {
+  value = module.cloud_function.trigger-bucket
 }

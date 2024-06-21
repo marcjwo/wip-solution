@@ -6,5 +6,5 @@ resource "google_bigquery_dataset" "dataset" {
 resource "google_bigquery_table" "table" {
   dataset_id = google_bigquery_dataset.dataset.dataset_id
   table_id   = var.table_id
-  schema     = file("${path.module}/sample_bq_schema.json")
+  schema     = file("${path.module}/bq_schema.json")
 }
