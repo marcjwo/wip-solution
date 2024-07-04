@@ -1,3 +1,8 @@
+# TODO
+
+- [ ] Update Looker component
+- [ ] Enhance more generic examples (Finance/Insurance/Etc)
+
 # WIP Solution
 
 This is a WIP showcasing data extraction from unstructured documents using Vertex AI, BigQuery, and Looker.
@@ -23,7 +28,7 @@ Getting started involves:
 - Cloud Function settings/extraction instructions to be set [following these instructions](./wip-cloud-function/README.md)
 - Backend Setup - setup the GCP backend of storage, bigquery, and cloud functions [using these instructions](./wip-backend/README.md)
 - Frontend Setup - setup the example Streamlit frontend [using these instructions](./wip-frontend/README.md)
-- Looker Setup - create model and view for consumption of data [using these instructions](./wip-looker/README.md)
+- Looker Setup - create model and view for consumption of data [using these instructions](./wip-looker/README.md) (**THIS IS OUT OF DATE**)
 
 ## Instructions/How-to
 

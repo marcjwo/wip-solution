@@ -1,5 +1,5 @@
 resource "random_id" "default" {
-  byte_length = 8
+  byte_length = 4
 }
 
 data "archive_file" "default" {
@@ -17,6 +17,7 @@ resource "google_storage_bucket" "gcf-source-bucket" {
   location                    = var.region
   uniform_bucket_level_access = true
   depends_on                  = [random_id.default]
+  force_destroy               = true
 }
 
 resource "google_storage_bucket_object" "gcf-source-object" {
@@ -30,6 +31,7 @@ resource "google_storage_bucket" "trigger-bucket" {
   location                    = var.region
   uniform_bucket_level_access = true
   depends_on                  = [random_id.default]
+  force_destroy               = true
 }
 
 resource "google_storage_bucket" "prompt-bucket" {
@@ -37,6 +39,7 @@ resource "google_storage_bucket" "prompt-bucket" {
   location                    = var.region
   uniform_bucket_level_access = true
   depends_on                  = [random_id.default]
+  force_destroy               = true
 }
 
 resource "google_storage_bucket_object" "prompt-object" {
@@ -80,7 +83,7 @@ resource "google_project_iam_member" "artifactregistry-reader" {
 resource "google_cloudfunctions2_function" "default" {
   depends_on  = [google_project_iam_member.event-receiving, google_project_iam_member.artifactregistry-reader]
   project     = var.project_id
-  name        = "document_extraction"
+  name        = "document_tabular_extraction"
   location    = var.region
   description = "An event triggered python function to extract information from PDF and load those to BQ"
   event_trigger {

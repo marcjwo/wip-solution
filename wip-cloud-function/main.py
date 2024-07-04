@@ -80,8 +80,9 @@ def generate_content(project_id, bucket_name, file_name, prompt):
     contents = [pdf_file, prompt]
     response = model.generate_content(contents)
     str = re.search(r"```json\n(.*)\n```", response.text, re.DOTALL).group(1).strip()
-    response = json.loads(str)
+    response = [json.loads(str)]
     response[0]["file_location"] = pdf_file_uri
+    print(response)
     return response
 
 

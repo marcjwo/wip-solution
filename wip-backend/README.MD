@@ -47,3 +47,11 @@ terraform apply
 - Trigger GCS bucket
 - Prompt GCS bucket
 - Cloud Function 2nd Gen, triggered by changes in trigger bucket
+
+## Cleaning Up
+
+To remove all resources created by this Terraform configuration, run:
+
+```bash
+terraform destroy
+```

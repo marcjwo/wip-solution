@@ -15,6 +15,7 @@ module "google_project_service" {
     "serviceusage.googleapis.com",
     "storage.googleapis.com"
   ]
+  disable_services_on_destroy = false
 }
 
 resource "time_sleep" "wait_after_apis_activate" {

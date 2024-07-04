@@ -1,92 +1,87 @@
 [
   {
-    "name": "project_name",
+    "name": "company_name",
     "type": "STRING",
     "mode": "NULLABLE"
   },
   {
-    "name": "policy_number",
+    "name": "ticker_symbol",
     "type": "STRING",
     "mode": "NULLABLE"
   },
   {
-    "name": "construction_team_owners",
-    "type": "STRING",
-    "mode": "NULLABLE"
-  },
-  {
-    "name": "policy_design",
-    "type": "STRING",
-    "mode": "NULLABLE"
-  },
-  {
-    "name": "project_code",
-    "type": "STRING",
-    "mode": "NULLABLE"
-  },
-  {
-    "name": "project_country",
-    "type": "STRING",
-    "mode": "NULLABLE"
-  },
-  {
-    "name": "class_of_insurance",
-    "type": "STRING",
-    "mode": "NULLABLE"
-  },
-  {
-    "name": "insurerpolicy_or_endorsement",
-    "type": "STRING",
-    "mode": "NULLABLE"
-  },
-  {
-    "name": "effective_date",
+    "name": "report_date",
     "type": "DATE",
     "mode": "NULLABLE"
   },
   {
-    "name": "expiry_date",
+    "name": "reporting_period",
     "type": "DATE",
     "mode": "NULLABLE"
   },
   {
-    "name": "limit_currency",
+    "name": "revenue",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "net_income",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "eps",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "operating_income",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "total_assets",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "total_liabilities",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "achievements",
     "type": "STRING",
     "mode": "NULLABLE"
   },
   {
-    "name": "policy_limit_local",
-    "type": "NUMERIC",
-    "mode": "NULLABLE"
-  },
-  {
-    "name": "premium_currency",
+    "name": "challenges",
     "type": "STRING",
     "mode": "NULLABLE"
   },
   {
-    "name": "gross_premium_local",
-    "type": "NUMERIC",
+    "name": "strategic_initiatives",
+    "type": "STRING",
     "mode": "NULLABLE"
   },
   {
-    "name": "net_premium_local",
-    "type": "NUMERIC",
+    "name": "guidance_and_outlook",
+    "type": "STRING",
     "mode": "NULLABLE"
   },
   {
-    "name": "commission_rate",
-    "type": "NUMERIC",
+    "name": "overall_sentiment",
+    "type": "STRING",
     "mode": "NULLABLE"
   },
   {
-    "name": "tax_ratefee_local",
-    "type": "NUMERIC",
+    "name": "key_sentiment_drivers",
+    "type": "STRING",
     "mode": "NULLABLE"
   },
   {
-    "name": "commission_amount_local",
-    "type": "NUMERIC",
+    "name": "summary",
+    "type": "STRING",
     "mode": "NULLABLE"
   },
   {
